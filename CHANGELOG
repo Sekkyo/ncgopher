@@ -1,5 +1,11 @@
 * NcGopher Changelog
 
+** Unreleased
+
+  New features:
+  * Homebrew formula for macOS (Formula/ncgopher.rb)
+  * On macOS, the HTML and image commands default to `open`
+
 ** 0.8.0
 
   Changes:

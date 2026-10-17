@@ -44,6 +44,21 @@ Obligatory screenshot:
 ## Installation
 
 
+### macOS (Homebrew)
+
+macOS users can install ncgopher using Homebrew. The formula lives in this
+repository, so tap it by URL first:
+
+    brew tap jansc/ncgopher https://github.com/jansc/ncgopher
+    brew install jansc/ncgopher/ncgopher
+
+To build the latest development version instead, add `--HEAD` to the install
+command. ncgopher uses the ncurses and sqlite3 libraries that ship with macOS.
+Homebrew installs Rust as a build dependency.
+
+On macOS the HTML and image commands default to `open`, which hands URLs and
+files to your default application. You can change them in the settings dialog.
+
 ### Arch Linux
 
 Arch Linux users can install ncgopher using pacman:
