@@ -6,6 +6,10 @@
   * Homebrew formula for macOS (Formula/ncgopher.rb)
   * On macOS, the HTML and image commands default to `open`
 
+  Bugfixes:
+  * macOS: build against Homebrew's ncurses; the system ncurses crashed with
+    a segmentation fault on mouse clicks
+
 ** 0.8.0
 
   Changes:

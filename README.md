@@ -53,8 +53,16 @@ repository, so tap it by URL first:
     brew install jansc/ncgopher/ncgopher
 
 To build the latest development version instead, add `--HEAD` to the install
-command. ncgopher uses the ncurses and sqlite3 libraries that ship with macOS.
-Homebrew installs Rust as a build dependency.
+command. The formula builds against Homebrew's ncurses, and Homebrew installs
+Rust as a build dependency.
+
+Do not build against the ncurses that ships with macOS: it defines `mmask_t` as
+a 64-bit type, which the `ncurses` Rust crate does not expect, so ncgopher
+crashes with a segmentation fault on the first mouse click. If you build with
+`cargo` on macOS, use Homebrew's ncurses instead:
+
+    brew install ncurses pkgconf
+    PKG_CONFIG_PATH="$(brew --prefix ncurses)/lib/pkgconfig" cargo install ncgopher
 
 On macOS the HTML and image commands default to `open`, which hands URLs and
 files to your default application. You can change them in the settings dialog.

@@ -6,9 +6,13 @@ class Ncgopher < Formula
   license "BSD-2-Clause"
   head "https://github.com/jansc/ncgopher.git", branch: "master"
 
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  # macOS ships ncurses 5.4 with a 64-bit mmask_t, which the ncurses-rs crate
+  # does not expect, so any mouse click crashes ncgopher. Link Homebrew's
+  # ncurses 6 instead.
+  depends_on "ncurses"
 
-  uses_from_macos "ncurses"
   uses_from_macos "sqlite"
 
   def install
