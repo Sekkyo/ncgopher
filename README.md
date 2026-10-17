@@ -64,8 +64,11 @@ crashes with a segmentation fault on the first mouse click. If you build with
     brew install ncurses pkgconf
     PKG_CONFIG_PATH="$(brew --prefix ncurses)/lib/pkgconfig" cargo install ncgopher
 
-On macOS the HTML and image commands default to `open`, which hands URLs and
-files to your default application. You can change them in the settings dialog.
+The external commands for HTML, images and Telnet are empty by default. To open
+web links in your browser, set the HTML command to `open` in the settings
+dialog. Gopher servers choose the URLs and file names that are handed to that
+command, and `open` launches whichever macOS application handles them, so only
+enable it if you accept that. The same applies to the image command.
 
 ### Arch Linux
 

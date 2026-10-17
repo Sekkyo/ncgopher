@@ -200,19 +200,11 @@ fn default_debug() -> String {
 fn default_theme() -> String {
     "lightmode".to_owned()
 }
-// macOS ships `open`, which hands URLs and files to the default application.
-fn default_open_command() -> String {
-    if cfg!(target_os = "macos") {
-        "open".to_owned()
-    } else {
-        "".to_owned()
-    }
-}
 fn default_html_command() -> String {
-    default_open_command()
+    "".to_owned()
 }
 fn default_image_command() -> String {
-    default_open_command()
+    "".to_owned()
 }
 fn default_telnet_command() -> String {
     "".to_owned()

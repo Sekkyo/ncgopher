@@ -21,6 +21,12 @@ class Ncgopher < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/ncgopher --version")
+    output = shell_output("#{bin}/ncgopher --version")
+    if build.head?
+      # HEAD builds report the Cargo package version, not Homebrew's "HEAD" version
+      assert_match(/\Ancgopher \d+\.\d+\.\d+/, output)
+    else
+      assert_match version.to_s, output
+    end
   end
 end
